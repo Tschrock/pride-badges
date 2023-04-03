@@ -47,7 +47,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ----
 
-<p>Made with <img style="height: 1.25em; vertical-align: bottom;" src="https://emoji.lgbt/assets/svg/bi-heart.svg"/> by <a href="https://twitter.com/CyberPon3">@CyberPon3</a><br>Like pride tech? Check out <a href="https://emoji.lgbt">https://emoji.lgbt</a></p>
+<p>Made with <img height="18" src="https://emoji.lgbt/assets/svg/bi-heart.svg"/> by <a href="https://twitter.com/CyberPon3">@CyberPon3</a><br>Like pride tech? Check out <a href="https://emoji.lgbt">https://emoji.lgbt</a></p>
 
 [badge-trans]: https://pride-badges.pony.workers.dev/static/v1?label=trans%20rights&stripeWidth=6&stripeColors=5BCEFA,F5A9B8,FFFFFF,F5A9B8,5BCEFA
 [badge-lgbtq]: https://pride-badges.pony.workers.dev/static/v1?label=lgbtq%2B%20friendly&stripeWidth=6&stripeColors=E40303,FF8C00,FFED00,008026,24408E,732982
