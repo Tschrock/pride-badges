@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pride Badges API</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:creator" content="@CyberPon3">
+        <meta name="twitter:title" content="Pride Badge API">
+        <meta name="twitter:description" content="A pride-themed badge generator.">
+        <meta name="twitter:image" content="https://p.cp3.es/ss1680310496-81cb65-2.png">
+        <style>
+            body {
+                font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+                padding: 0 1em 2rem;
+                margin: auto;
+            }
+            code {
+                display: inline-block;
+                background: #eee;
+                padding: 0 0.25em;
+                border-radius: 0.2em;
+                font-size: inherit;
+                font-family: monospace, monospace;
+            }
+            pre {
+                display: block;
+                background: #eee;
+                padding: 1rem;
+                font-size: inherit;
+                font-family: monospace, monospace;
+                overflow: auto;
+            }
+            pre:after {
+                content: "";
+                display: inline-block;
+                position: relative;
+                width: 1rem;
+            }
+            dt {
+                margin-bottom: 0.5em;
+            }
+            dd + dt {
+                margin-top: 1em;
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            label {
+                display: flex;
+                gap: 1rem;
+            }
+            input[type=text],
+            input[type=number] {
+                width: 200px;
+            }
+            input[type=submit] {
+                width: fit-content;
+                min-width: 80px;
+            }
+            #byo-container {
+                margin: 1.5rem 0;
+                opacity: 0;
+            }
+            #byo-container.show {
+                opacity: 1;
+            }
+            @media screen and (min-width: 800px) { body { max-width: 700px; } }
+            @media screen and (min-width: 1000px) { body { max-width: 900px; } }
+            @media screen and (min-width: 1200px) { body { max-width: 1100px; } }
+        </style>
+    </head>
+    <body>
+        <h1>Pride Badges API</h2>
+        <h2>GET <code>/static/v1</code></h2>
+        <h3>Parameters</h3>
+        <dl>
+            <dt><code>label</code></dt>
+            <dd>The badge label. Required.</dd>
+
+            <dt><code>labelColor</code></dt>
+            <dd>The background color for the badge label. Default is <code>#555</code>.</dd>
+
+            <dt><code>stripeWidth</code></dt>
+            <dd>The width of the stripes. Default is <code>8</code>.</dd>
+
+            <dt><code>stripeColors</code></dt>
+            <dd>A comma seperated list of stripe colors. Required.</dd>
+        </dl>
+        <h3>Examples</h3>
+        <!-- EXAMPLES -->
+        <h3>Build your own!</h3>
+        <form id="byo-form">
+            <label>Label <input name="label" type="text" value="Sponsored by the Gay Agenda"/></label>
+            <label>Label Color <input name="labelColor" type="text" value="#555"/></label>
+            <label>Stripe Width <input name="stripeWidth" type="number" value="8"/></label>
+            <label>Stripe Colors <input name="stripeColors" type="text" style="width: 300px;" value="E40303,FF8C00,FFED00,008026,24408E,732982"/></label>
+            <input type="submit" value="go"/>
+        </form>
+        <div id="byo-container">
+            <img id="byo-img" src=""/>
+            <pre id="byo-out"></pre>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const form = document.getElementById('byo-form')
+                const container = document.getElementById('byo-container')
+                const img = document.getElementById('byo-img')
+                const out = document.getElementById('byo-out')
+                form.addEventListener('submit', event => {
+                    event.preventDefault()
+                    const data = new URLSearchParams(new FormData(event.target, event.submitter))
+                    const url = "/static/v1?" + data.toString()
+                    img.src = url
+                    out.innerText = new URL(url, window.location).toString()
+                    container.classList.add("show")
+                })
+            })
+        </script>
+        <hr>
+        <p>
+            Source on <a href="https://github.com/tschrock/pride-badges">GitHub</a><br>
+            Made with <img style="height: 1.25em; vertical-align: bottom;" src="https://emoji.lgbt/assets/svg/bi-heart.svg"/> by <a href="https://twitter.com/CyberPon3">@CyberPon3</a><br>
+            Like pride tech? Check out <a href="https://emoji.lgbt">https://emoji.lgbt</a>
+        </p>
+    </body>
+</html>
